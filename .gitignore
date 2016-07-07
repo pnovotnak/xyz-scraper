@@ -1,5 +1,12 @@
 .idea/
+
 env/
+venv/
+
 *.pdf
+__pycache__/
+*.py[cod]
+*$py.class
+
 sections.txt
 

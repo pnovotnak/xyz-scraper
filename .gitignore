@@ -8,5 +8,7 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+.DS_Store
+
 sections.txt
 

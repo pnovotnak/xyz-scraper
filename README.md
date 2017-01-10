@@ -5,17 +5,21 @@ Quickly and dirtily scrape a textbook from XYZ textbooks
 
 I have a Sony DPT-S1 and it's pretty cool. I'd like PDF copies of my 
 textbooks so I don't have to carry the physical copy. Unfortunately 
-one has to get their hands a little dirty to get a PDF from xyzTextbooks.
+one has to break some eggs to get a PDF from xyzTextbooks.
 
 ## How?
 
-The script works from a manifest file (which you must currently 
-generate yourself), grabbing the contents of every page from every 
-section as an SVG. 
+1) Start from an ISBN-13 code of the book you'd like, using the `scraper.py`
+script to download every page of every section. Run the command without any
+parameters to get usage.
+2) Use the `binder.py` script to combine these pages into a PDF.
 
-From here, you need to combine the files into a PDF. The best way 
-I've yet found to convert these files into PDFs is 
-[PhantomJS](http://phantomjs.org/).
+## Can We Do Better?
 
-Once every page is a PDF they may be easily merged using a 
-[variety of techniques](http://stackoverflow.com/questions/2507766/merge-convert-multiple-pdf-files-into-one-pdf).
+Surely. CairoSVG rasterizes the SVG files, which, while making them fast to
+render, doesn't allow you to interact with text without running OCR on the
+output.
+
+It's possible to use [PhantomJS](http://phantomjs.org/) instead of the 
+`binder.py` script to render the PDFs, which can then be merged via the
+command line using a [variety of techniques](http://stackoverflow.com/questions/2507766/merge-convert-multiple-pdf-files-into-one-pdf).
